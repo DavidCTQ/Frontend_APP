@@ -5,13 +5,13 @@ export const getAllSlaves = async () => {
     return response.json();
 };
 
-// v Obtener un producto por ID v //
+// v Obtener un esclavo por ID v //
 export const getSlaveByID = async (id) => {
     const response = await fetch(`${API_URL}/${id}`)
     return response.json();
 };
 
-// v Crear un producto v //
+// v Crear un esclavo v //
 export const createSlave = async (Product) => {
     const response = await fetch(API_URL, {
         method: "POST",
@@ -21,7 +21,7 @@ export const createSlave = async (Product) => {
     return response.json();
 };
 
-// v Actualizar el producto v //
+// v Actualizar el esclavo v //
 export const updateSlave = async (id, Product) => {
     const response = await fetch(`${API_URL}/${id}`, {
         method: "PUT",
@@ -31,7 +31,7 @@ export const updateSlave = async (id, Product) => {
     return response.json();
 };
 
-// v Borrar un Producto v //
+// v Borrar un esclavo v //
 export const deleteSlave = async (id) => {
     return fetch(`${API_URL}/${id}`, {
       method: "DELETE"

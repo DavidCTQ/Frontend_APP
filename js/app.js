@@ -5,7 +5,7 @@ import { getAllSlaves, getSlaveByID, createSlave, updateSlave, deleteSlave } fro
 document.addEventListener('DOMContentLoaded', async () => {
     const slaveList = document.getElementById('slave-list');
     const slaves = await getAllSlaves();
-  slaveList.innerHTML = slaves.map(slave => `
+    slaveList.innerHTML = slaves.map(slave => `
       <div class="col-xs-12 col-sm-6 col-md-3 card">
         <img class="card-img-top" src="${slave.imgUrl}">
         <div class="card-body d-flex flex-column justify-content-end">
