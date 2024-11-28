@@ -12,7 +12,7 @@
             crossorigin="anonymous">
     </head>
 <!--  | CUERPO DE LA PÁGINA |  -->
-    <body>
+    <body>    
         <!-- v Menú aplicación v -->
         <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"> 
             <div class="container-fluid">
@@ -37,12 +37,76 @@
               </div>
             </div>
           </nav>
-        <!-- ^ Menú aplicación ^ -->
+
+  <!-- | FORMULARIO PARA AGREGAR PRODUCTO | -->
+  <main class="container pt-3 pb-3">
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center">-________________________________________________________________________________-</h4>
+        <h1 class="text-center">-| INGRESO DE ESCLAVOS AL CATÁLOGO |-</h1>
+        <h4 class="text-center">-________________________________________________________________________________-</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <form action="" id="slave-form">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre del esclavo</label>
+            <input type="text" class="form-control" id="name" placeholder="Nombre del esclavo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="race" class="form-label">Raza del esclavo</label>
+            <textarea type="text" class="form-control" id="description" placeholder="Raza del esclavo" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="gender" class="form-label">Género</label>
+            <input type="text" class="form-control" id="price" placeholder="Género del esclavo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="price" placeholder="Edad del esclavo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="price" placeholder="Precio del esclavo" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="imgUrl" class="form-label">Imagen del Esclavo</label>
+            <input type="text" class="form-control" id="imgUrl" placeholder="Imagen del Esclavo" required>
+          </div>
+
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+        <!-- ^ MENÚ APLICACIÓN ^ -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
             crossorigin="anonymous">
         </script>
         <script type="module" src="js/api.js"></script>
         <script type="module" src="js/app.js"></script>
+        <script type="module">
+          import { createSlave } from './js/api.js';
+          document.getElementById('product-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newProduct = {
+              name: document.getElementById('name').value,
+              race: document.getElementById('race').value,
+              gender: document.getElementById('gender').value,
+              age: parseFloat(document.getElementById('age').value),
+              price: parseFloat(document.getElementById('price').value),
+              imgUrl: document.getElementById('imgUrl').value
+            };
+            await addSlave(newProduct);
+            window.location.href = 'index.html'; // Redirige al catálogo
+          });
+        </script>
     </body>
 </html>

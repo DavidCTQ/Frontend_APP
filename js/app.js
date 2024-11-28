@@ -32,14 +32,15 @@ window.viewSlave = async (id) => {
       `;
     document.getElementById('slave-list').innerHTML = slaveDetails;
   };
-  
-  // Habilitamos el formulario para editar cada uno de los productos
+
   window.enableEdit = async (id) => {
     const slave = await getSlaveByID(id);
     const editForm = `
       <div class="row gap-3">
         <input type="text" id="name" value="${slave.name}">
-        <textarea id="description">${slave.description}</textarea>
+        <textarea id="race">${slave.race}</textarea>
+        <textarea id="gender">${slave.gender}</textarea>
+        <input type="number" id="age" value="${slave.age}">
         <input type="number" id="price" value="${slave.price}">
         <input type="text" id="imgUrl" value="${slave.imgUrl}">
         <button class="btn btn-success" onclick="saveEdit(${id})">Guardar</button>
@@ -48,20 +49,20 @@ window.viewSlave = async (id) => {
     document.getElementById('slave-list').innerHTML = editForm;
   };
   
-  // Guardamos la nueva información en nuestra base de datos
   window.saveEdit = async (id) => {
     const updateSlave = {
       name: document.getElementById('name').value,
-      description: document.getElementById('description').value,
+      race: document.getElementById('race').value,
+      gender: document.getElementById('gender').value,
+      age: parseFloat(document.getElementById('age').value),
       price: parseFloat(document.getElementById('price').value),
       imgUrl: document.getElementById('imgUrl').value
     };
     await updateSlave(id, updateSlave);
-    location.reload(); // Recarga la página para ver los cambios
+    location.reload(); 
   };
-  
-  // Función para borrar el producto seleccionado
+
   window.deleteSlave = async (id) => {
     await deleteSlave(id);
-    location.reload(); // Recarga la página para ver los cambios
+    location.reload();
   };
