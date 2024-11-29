@@ -1,4 +1,5 @@
 const API_URL = "http://localhost:3000/api/slaves";
+
 // v Obtener todos los productos v //
 export const getAllSlaves = async () => {
     const response = await fetch(API_URL)

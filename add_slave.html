@@ -57,17 +57,17 @@
 
               <div class="mb-3">
                 <label for="race" class="form-label">Raza del esclavo</label>
-                <textarea type="text" class="form-control" id="description" placeholder="Raza del esclavo" required></textarea>
+                <textarea type="text" class="form-control" id="race" placeholder="Raza del esclavo" required></textarea>
               </div>
 
               <div class="mb-3">
                 <label for="gender" class="form-label">Género</label>
-                <input type="text" class="form-control" id="price" placeholder="Género del esclavo" required>
+                <input type="text" class="form-control" id="gender" placeholder="Género del esclavo" required>
               </div>
 
               <div class="mb-3">
                 <label for="age" class="form-label">Edad</label>
-                <input type="number" class="form-control" id="price" placeholder="Edad del esclavo" required>
+                <input type="number" class="form-control" id="age" placeholder="Edad del esclavo" required>
               </div>
 
               <div class="mb-3">
@@ -91,10 +91,9 @@
             crossorigin="anonymous">
         </script>
         <script type="module" src="js/api.js"></script>
-        <script type="module" src="js/app.js"></script>
         <script type="module">
           import { createSlave } from './js/api.js';
-          document.getElementById('product-form').addEventListener('submit', async (e) => {
+          document.getElementById('slave-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const newSlave = {
               name: document.getElementById('name').value,

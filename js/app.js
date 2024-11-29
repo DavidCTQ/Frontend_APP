@@ -1,5 +1,5 @@
 // Importando los métodos de api.js
-import { getAllSlaves, getSlaveByID, createSlave, updateSlave, deleteSlave } from './api.js';
+import { getAllSlaves, getSlaveByID, updateSlave, deleteSlave } from './api.js';
 
 // Traer los productos y crear cada uno en la página principal
 document.addEventListener('DOMContentLoaded', async () => {
@@ -50,7 +50,7 @@ window.viewSlave = async (id) => {
   };
   
   window.saveEdit = async (id) => {
-    const updateSlave = {
+    const slave = {
       name: document.getElementById('name').value,
       race: document.getElementById('race').value,
       gender: document.getElementById('gender').value,
@@ -58,7 +58,7 @@ window.viewSlave = async (id) => {
       price: parseFloat(document.getElementById('price').value),
       imgUrl: document.getElementById('imgUrl').value
     };
-    await updateSlave(id, updateSlave);
+    await updateSlave(id, slave);
     location.reload(); 
   };
 
